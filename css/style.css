@@ -1,0 +1,9 @@
+.img-list {
+  list-style: none;
+  display: flex;
+}
+
+.img-list-item {
+  text-align: center;
+  margin-right: 15px;
+}
