@@ -41,19 +41,28 @@ const images = [
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('img-list');
 
+// const imagesRef = images
+//   .map(image => {
+//     const liRef = document.createElement('li');
+//     liRef.classList.add('img-list-item');
+//     liRef.insertAdjacentHTML('afterbegin', `<img src="${image.url}" alt="${image.alt}" width="300" height="260" />`);
+//     console.log(liRef);
+//     galleryRef.insertAdjacentElement('afterbegin', liRef);
+//     return liRef;
+//   })
+// console.log(galleryRef);
+
+
 const imagesRef = images
-  .map(image => {
-    const liRef = document.createElement('li');
-    liRef.classList.add('img-list-item');
+  .reduce((acc, image) => {
+    const el = `<li class="img-list-item">
+    <img src="${image.url}" alt="${image.alt}" width="300" height="260" /></li>`;
+    acc += el;
 
-    liRef.insertAdjacentHTML('afterbegin', `<img src="${image.url}" alt="${image.alt}" width="300" height="260" />`);
-    console.log(liRef);
+    return acc;
+  }, '')
 
-    galleryRef.insertAdjacentElement('afterbegin', liRef);
-
-    return liRef;
-  })
-
+galleryRef.insertAdjacentHTML('afterbegin', imagesRef);
 console.log(galleryRef);
 
 
