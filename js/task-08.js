@@ -30,16 +30,21 @@ const boxRef = document.querySelector('#boxes');
 console.dir(boxRef);
 
 function createBoxes(amount) {
-  destroyBoxes();
-  for (let i = 0; i < amount; ++i) {
-    const el = document.createElement('div');
-    const x = 30 + i * 10;
-    el.style.height = x + 'px';
-    el.style.width = x + 'px';
-    el.style.backgroundColor = `rgb(${Math.random() * 255},${Math.random() * 255}, ${Math.random() * 255})`;
-    el.style.marginBottom = '3px'
-    boxRef.appendChild(el);
-  }
+  //destroyBoxes();
+  const countBox = boxRef.querySelectorAll('div');
+  const offset = countBox.length;
+  new Array(Number(amount))
+    .fill(0)
+    .forEach((element, i) => {
+      const el = document.createElement('div');
+      const x = 30 + (i + offset) * 10;
+      el.style.height = x + 'px';
+      el.style.width = x + 'px';
+      el.style.backgroundColor = `rgb(${Math.random() * 255},${Math.random() * 255}, ${Math.random() * 255})`;
+      el.style.marginBottom = '3px'
+      boxRef.appendChild(el);
+    })
+
 }
 
 function destroyBoxes() {
