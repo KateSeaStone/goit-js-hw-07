@@ -30,6 +30,15 @@ const boxRef = document.querySelector('#boxes');
 console.dir(boxRef);
 
 function createBoxes(amount) {
+  /* Математический вариант от Влада
+  // let offset = 30;
+  // if (countBox.length) {
+  //   let widthBox = countBox[countBox.length - 1].style.width;
+  //   console.log(widthBox);
+  //   widthBox = widthBox.replace('px', '');
+  //   offset = Number(widthBox) + 10;
+  // }*/
+
   //destroyBoxes();
   const countBox = boxRef.querySelectorAll('div');
   const offset = countBox.length;
